@@ -11,6 +11,7 @@
 		A8086F80290FBFA4008A5A8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8086F7F290FBFA4008A5A8F /* ContentView.swift */; };
 		A8086F82290FBFA6008A5A8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8086F81290FBFA6008A5A8F /* Assets.xcassets */; };
 		A8086F85290FBFA6008A5A8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8086F84290FBFA6008A5A8F /* Preview Assets.xcassets */; };
+		A84978DC290FCC0800F336D6 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84978DB290FCC0800F336D6 /* SecondView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		A8086F7F290FBFA4008A5A8F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A8086F81290FBFA6008A5A8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8086F84290FBFA6008A5A8F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A84978DB290FCC0800F336D6 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				A8086F7D290FBFA4008A5A8F /* KCApp.swift */,
 				A8086F7F290FBFA4008A5A8F /* ContentView.swift */,
+				A84978DB290FCC0800F336D6 /* SecondView.swift */,
 				A8086F81290FBFA6008A5A8F /* Assets.xcassets */,
 				A8086F83290FBFA6008A5A8F /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A84978DC290FCC0800F336D6 /* SecondView.swift in Sources */,
 				A8086F80290FBFA4008A5A8F /* ContentView.swift in Sources */,
 				A8086F7E290FBFA4008A5A8F /* KCApp.swift in Sources */,
 			);

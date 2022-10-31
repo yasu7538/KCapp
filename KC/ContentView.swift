@@ -10,24 +10,13 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            NavigationView {
+                NavigationLink("次の画面",destination:SecondView())
+                    
+            }.navigationBarBackButtonHidden(true)
             
-            HStack{
-                Button(action:{}){
-                    Text("Button22")
-                }
-                Button(action:{}){
-                    Text("Button3")
-                }
-                Button(action:{}){
-                    Text("Button4")
-                }
-            }
         }
-        .padding()
+        
     }
 }
 
