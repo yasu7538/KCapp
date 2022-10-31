@@ -14,6 +14,12 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+            
+            HStack{
+                Button(action:{}){
+                    Text("Button")
+                }
+            }
         }
         .padding()
     }
