@@ -22,6 +22,9 @@ struct ContentView: View {
                 Button(action:{}){
                     Text("Button3")
                 }
+                Button(action:{}){
+                    Text("Button4")
+                }
             }
         }
         .padding()
