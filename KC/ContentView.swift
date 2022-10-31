@@ -17,7 +17,7 @@ struct ContentView: View {
             
             HStack{
                 Button(action:{}){
-                    Text("Button")
+                    Text("Button22")
                 }
             }
         }
