@@ -9,27 +9,23 @@ import SwiftUI
 
 struct SecondView: View {
     
-    @State private var show:Bool=false
-    
-    var body: some View {
-        VStack{
-            Text("KC").fontWeight(.bold)
-            Button(action: {self.show.toggle()}){
-                Text("KC作成").fontWeight(.bold).padding(.top, 10.0)
-            }.sheet(isPresented: self.$show){
-                satuei()
-            }
-            Button(action: {self.show.toggle()}){
-                Text("KC一覧").fontWeight(.bold)
-            }.sheet(isPresented: self.$show){
-                KCitiran()
-            }
-            Button(action: {self.show.toggle()}){
-                Text("素材一覧").fontWeight(.bold)
-            }.sheet(isPresented: self.$show){
-                sozai()
-            }
-        } .navigationBarHidden(true)
+    var body: some View{
+        NavigationStack{
+            VStack{
+                Text("KC").fontWeight(.bold).padding(.bottom)
+                NavigationLink(destination: CameraView()){
+                    Text("KC作成").fontWeight(.bold)
+                }
+                
+                NavigationLink(destination: KCitiran()){
+                    Text("KC一覧").fontWeight(.bold)
+                }
+                
+                NavigationLink(destination: sozai()){
+                    Text("素材一覧").fontWeight(.bold)
+                }
+            }.navigationBarHidden(true)
+        }
     }
 }
 
