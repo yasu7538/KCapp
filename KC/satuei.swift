@@ -62,7 +62,7 @@ struct CameraView: View {
     
     var body: some View {
             NavigationStack{
-                VStack(spacing:0){
+                VStack(){
                         ZStack{
                             NavigationLink(
                                 destination: Imagepicker(show: $isImagePicker, image: $imageData, sourceType: source),
@@ -75,30 +75,29 @@ struct CameraView: View {
                                     Image(uiImage: UIImage(data: self.imageData)!)
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
-                                        .frame(height: 250)
-                                        .cornerRadius(15)
+                                        .frame(width: 300, height: 500)
+                                        .rotationEffect(.degrees(90))
                                         .padding()
                                 }
-                                HStack(spacing:30){
+                                HStack(){
                                     Button(action: {
                                             self.source = .photoLibrary
                                             self.isImagePicker.toggle()
                                     }, label: {
-                                        Text("Upload")
+                                        Text("フォルダ")
                                     })
                                     Button(action: {
                                             self.source = .camera
                                             self.isImagePicker.toggle()
                                     }, label: {
-                                        Text("Take Photo")
+                                        Text("撮影")
                                     })
                                 }
                             }
                         }
                 }
-                .navigationBarTitle("Home", displayMode: .inline)
             }
         .ignoresSafeArea(.all, edges: .top)
-        .background(Color.primary.opacity(0.06).ignoresSafeArea(.all, edges: .all))
+        
     }
 }
