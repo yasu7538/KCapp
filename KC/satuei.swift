@@ -52,6 +52,27 @@ struct Imagepicker : UIViewControllerRepresentable {
     }
 }
 
+class ImageSaver: NSObject{
+    @Binding var showAlert: Bool
+    
+    init(_ showAlert: Binding<Bool>) {
+        _showAlert = showAlert
+    }
+    
+    func writeToPhotoAlbum(image: Data){
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(didFinishSavingImage), nil)
+    }
+    
+    @objc func didFinishSavingImage(_ image: Data, didFinishSavingWithError error: Error?,contextInfo: UnsafeRawPointer){
+        
+        if error != nil {
+            print("保存に失敗しました")
+        }else{
+            showAlert = true
+        }
+    }
+}
+
 struct CameraView: View {
     
     @State var imageData : Data = .init(capacity:0)
@@ -59,6 +80,8 @@ struct CameraView: View {
     
     @State var isActionSheet = false
     @State var isImagePicker = false
+    
+    @State var showAlert = false
     
     var body: some View {
             NavigationStack{
@@ -79,19 +102,32 @@ struct CameraView: View {
                                         .rotationEffect(.degrees(90))
                                         .padding()
                                 }
+                                Text("")
+                                    .padding(.vertical, 20.0)
                                 HStack(){
                                     Button(action: {
                                             self.source = .photoLibrary
                                             self.isImagePicker.toggle()
                                     }, label: {
-                                        Text("フォルダ")
+                                        Text("写真選択")
+                                            .padding(.trailing, 10.0)
                                     })
+                                    
                                     Button(action: {
                                             self.source = .camera
                                             self.isImagePicker.toggle()
                                     }, label: {
                                         Text("撮影")
+                                            .padding(.leading, 10.0)
                                     })
+                                }
+                                Button(action: {
+                                    ImageSaver($showAlert).writeToPhotoAlbum(image: Data!)}){
+                                    Text("保存")
+                                }.alert(isPresented: $showAlert){
+                                    Alert(title: Text("画像を保存しました"),message: Text(""),dismissButton: .default(Text("OK"),action:{
+                                        showAlert = false
+                                    }))
                                 }
                             }
                         }
