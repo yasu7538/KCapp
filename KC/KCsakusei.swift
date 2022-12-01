@@ -9,7 +9,12 @@ import SwiftUI
 
 struct KCsakusei: View {
     var body: some View {
-        Text("KC作成")
+        NavigationStack{
+            VStack{
+                Text("KC作成")
+            }.navigationBarHidden(true)
+        }
+        
     }
 }
 

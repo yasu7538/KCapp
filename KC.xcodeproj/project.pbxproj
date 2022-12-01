@@ -14,8 +14,8 @@
 		A8328989291CC28000672A03 /* KCsakusei.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8328988291CC28000672A03 /* KCsakusei.swift */; };
 		A832898B291CC2BC00672A03 /* KCitiran.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832898A291CC2BC00672A03 /* KCitiran.swift */; };
 		A832898D291CC2DC00672A03 /* sozai.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832898C291CC2DC00672A03 /* sozai.swift */; };
-		A832898F291CC30A00672A03 /* satuei.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832898E291CC30A00672A03 /* satuei.swift */; };
 		A84978DC290FCC0800F336D6 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84978DB290FCC0800F336D6 /* SecondView.swift */; };
+		A85C0E7D29386AAF0013AB28 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85C0E7C29386AAF0013AB28 /* ImagePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +27,8 @@
 		A8328988291CC28000672A03 /* KCsakusei.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCsakusei.swift; sourceTree = "<group>"; };
 		A832898A291CC2BC00672A03 /* KCitiran.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCitiran.swift; sourceTree = "<group>"; };
 		A832898C291CC2DC00672A03 /* sozai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sozai.swift; sourceTree = "<group>"; };
-		A832898E291CC30A00672A03 /* satuei.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = satuei.swift; sourceTree = "<group>"; };
 		A84978DB290FCC0800F336D6 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		A85C0E7C29386AAF0013AB28 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +64,8 @@
 				A8086F7D290FBFA4008A5A8F /* KCApp.swift */,
 				A8086F7F290FBFA4008A5A8F /* ContentView.swift */,
 				A84978DB290FCC0800F336D6 /* SecondView.swift */,
-				A832898E291CC30A00672A03 /* satuei.swift */,
 				A8328988291CC28000672A03 /* KCsakusei.swift */,
+				A85C0E7C29386AAF0013AB28 /* ImagePickerView.swift */,
 				A832898A291CC2BC00672A03 /* KCitiran.swift */,
 				A832898C291CC2DC00672A03 /* sozai.swift */,
 				A8086F81290FBFA6008A5A8F /* Assets.xcassets */,
@@ -154,10 +154,10 @@
 			files = (
 				A84978DC290FCC0800F336D6 /* SecondView.swift in Sources */,
 				A8328989291CC28000672A03 /* KCsakusei.swift in Sources */,
-				A832898F291CC30A00672A03 /* satuei.swift in Sources */,
 				A832898D291CC2DC00672A03 /* sozai.swift in Sources */,
 				A832898B291CC2BC00672A03 /* KCitiran.swift in Sources */,
 				A8086F80290FBFA4008A5A8F /* ContentView.swift in Sources */,
+				A85C0E7D29386AAF0013AB28 /* ImagePickerView.swift in Sources */,
 				A8086F7E290FBFA4008A5A8F /* KCApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,12 +290,13 @@
 				DEVELOPMENT_TEAM = 6FH96TZ3WL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "写真を撮影するためにカメラを使用します";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "撮影した写真の保存に利用します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -321,12 +322,13 @@
 				DEVELOPMENT_TEAM = 6FH96TZ3WL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "写真を撮影するためにカメラを使用します";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "撮影した写真の保存に利用します";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

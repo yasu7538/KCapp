@@ -13,12 +13,12 @@ struct SecondView: View {
         NavigationStack{
             VStack{
                 Text("KC").fontWeight(.bold).padding(.bottom)
-                NavigationLink(destination: CameraView()){
+                NavigationLink(destination: cameramove()){
                     Text("KC作成").fontWeight(.bold)
                 }
                 
                 NavigationLink(destination: KCitiran()){
-                    Text("KC一覧").fontWeight(.bold)
+                    Text("写真一覧").fontWeight(.bold)
                 }
                 
                 NavigationLink(destination: sozai()){
