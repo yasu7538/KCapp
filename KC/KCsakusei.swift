@@ -12,16 +12,11 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
     
-    @Binding var selectedImage: UIImage?
-    @Environment(\.presentationMode) private var presentationMode
-    
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
-        
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController{
         let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = false
         imagePicker.sourceType = sourceType
         imagePicker.delegate = context.coordinator
-        
         return imagePicker
     }
     
@@ -29,12 +24,14 @@ struct ImagePicker: UIViewControllerRepresentable {
         
     }
     
+    @Binding var selectedImage: UIImage
+    @Environment(\.presentationMode) private var presentationMode
+    
     func makeCoordinator() -> Coordinator {
-        return Coordinator(self)
+        Coordinator(self)
     }
     
-    final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        
+    final class Coordinator: NSObject,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
         var parent: ImagePicker
         
         init(_ parent: ImagePicker) {
@@ -42,40 +39,35 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            
-            if let image = info[.originalImage] as? UIImage {
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
                 parent.selectedImage = image
             }
-            
             parent.presentationMode.wrappedValue.dismiss()
         }
     }
+    
 }
 
 struct KCsakusei: View {
     
-    @State private var image: UIImage?
-    @State var showingImagePicker = false
+    @State private var image = UIImage()
+    @State private var isShowPhotoLibrary = false
     
     
     var body: some View {
         NavigationStack{
             VStack{
-                if let uiImage = image{
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFit()
-                }else{
-                    Image("noimage")
-                        .resizable()
-                        .frame(width: 200,height: 200)
-                        .clipShape(Circle())
-                }
-                Spacer().frame(height: 32)
+                Spacer()
+                Image(uiImage: self.image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(minWidth: 0,maxWidth: .infinity)
+                    .edgesIgnoringSafeArea(.all)
+                
                 Button(action: {
-                    showingImagePicker = true
-                }){
-                    Text("フォトライブラリから写真を選択")
+                    self.isShowPhotoLibrary = true
+                }, label: {
+                    Text("フォトライブラリ")
                     //横幅いっぱい
                         .frame(maxWidth: 750)
                     //高さ50ポイントを指定
@@ -86,8 +78,11 @@ struct KCsakusei: View {
                         .background(Color.blue)
                     //文字色を青色に指定
                         .foregroundColor(Color.white)
-                }
+                })
             }.navigationBarHidden(true)
+                .sheet(isPresented: $isShowPhotoLibrary, content: {
+                    ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+                })
         }
         
     }
